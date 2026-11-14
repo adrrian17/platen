@@ -6,8 +6,8 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "dev": "vp pack --watch",
-    "build": "vp check --no-fmt --no-lint && vp pack",
+    "dev": "node scripts/build-styles.mjs && vp pack --watch",
+    "build": "vp check --no-fmt --no-lint && vp pack && node scripts/build-styles.mjs",
     "test": "vp test run",
     "lint:obsidian": "eslint --max-warnings 0 src"
   },

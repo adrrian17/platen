@@ -21,3 +21,8 @@
   max-width: var(--platen-line-width);
   margin-inline: auto;
 }
+
+/* The bundled iA Writer Quattro S faces are prepended by scripts/build-styles.mjs. */
+.workspace-leaf.platen-zen-leaf.platen-quattro {
+  --font-text: "Platen iA Writer Quattro", var(--font-default);
+}

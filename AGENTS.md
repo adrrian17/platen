@@ -16,13 +16,14 @@ vp check            # format, lint (incl. 32 obsidianmd rules) and type-check
 pnpm lint:obsidian  # ESLint with Obsidian's exact review rule set; run before a release
 ```
 
-Never reintroduce npm or esbuild. `SPEC.md` is excluded from formatting.
+Never reintroduce npm or esbuild. `SPEC.md`, `fonts/` and the built `styles.css` are excluded from formatting.
 
 ## Layout
 
 - `src/main.ts`: the plugin. Owns the zen session (enter, exit, Esc scope, owned fullscreen, Reading view restore) and the workspace events that end it.
 - `src/editor.ts`: the CodeMirror extension. One `StateField` holds the zen state of an editor and is non-null only in the zen editor; typewriter scroll, padding and dimming all read it.
 - `src/settings.ts`: settings, parsed at the boundary, and the settings tab.
+- `src/styles.css`: the stylesheet source. `scripts/build-styles.mjs` writes the shipped `styles.css` (gitignored) with the iA Writer Quattro S faces from `fonts/` embedded; keep the files there unmodified (OFL Reserved Font Name).
 - `src/highlight-sentence.ts`: vendored from davisriedel/obsidian-typewriter-mode (MIT). Keep its license header; change it only to re-sync with upstream.
 
 ## Invariants (each one was verified in Obsidian; do not regress)

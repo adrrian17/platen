@@ -154,7 +154,7 @@ export default class PlatenPlugin extends Plugin {
     const { leaf, leafEl, scope, restoreReading, ownedFullscreen } = session;
 
     this.app.keymap.popScope(scope);
-    leafEl.removeClass("platen-zen-leaf", "platen-line-width");
+    leafEl.removeClass("platen-zen-leaf", "platen-line-width", "platen-quattro");
     leafEl.setCssProps({ "--platen-dim-opacity": "", "--platen-line-width": "" });
 
     const cm = editorView(leaf);
@@ -189,8 +189,9 @@ export default class PlatenPlugin extends Plugin {
   private applyStyles(): void {
     const session = this.session;
     if (!session) return;
-    const { dimOpacity, maxLineWidth } = this.settings;
+    const { dimOpacity, maxLineWidth, quattro } = this.settings;
     session.leafEl.toggleClass("platen-line-width", maxLineWidth > 0);
+    session.leafEl.toggleClass("platen-quattro", quattro);
     session.leafEl.setCssProps({
       "--platen-dim-opacity": String(dimOpacity),
       "--platen-line-width": `${maxLineWidth}ch`,

@@ -24,7 +24,7 @@ const obsidianRules = Object.fromEntries(
 );
 
 export default defineConfig({
-  fmt: { ignorePatterns: ["SPEC.md"] },
+  fmt: { ignorePatterns: ["SPEC.md", "styles.css", "fonts/"] },
   lint: {
     jsPlugins: [
       { name: "vite-plus", specifier: "vite-plus/oxlint-plugin" },

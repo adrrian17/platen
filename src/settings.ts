@@ -8,6 +8,7 @@ export interface PlatenSettings {
   fullscreen: boolean;
   /** In `ch`; 0 turns the limit off. */
   maxLineWidth: number;
+  quattro: boolean;
 }
 
 export const DEFAULT_SETTINGS: PlatenSettings = {
@@ -15,6 +16,7 @@ export const DEFAULT_SETTINGS: PlatenSettings = {
   dimOpacity: 0.25,
   fullscreen: true,
   maxLineWidth: 65,
+  quattro: true,
 };
 
 function numberIn(value: unknown, min: number, max: number, fallback: number): number {
@@ -35,6 +37,7 @@ export function parseSettings(data: unknown): PlatenSettings {
     dimOpacity: numberIn(raw.dimOpacity, 0.05, 1, DEFAULT_SETTINGS.dimOpacity),
     fullscreen: typeof raw.fullscreen === "boolean" ? raw.fullscreen : DEFAULT_SETTINGS.fullscreen,
     maxLineWidth: Math.round(numberIn(raw.maxLineWidth, 0, 200, DEFAULT_SETTINGS.maxLineWidth)),
+    quattro: typeof raw.quattro === "boolean" ? raw.quattro : DEFAULT_SETTINGS.quattro,
   };
 }
 
@@ -95,5 +98,16 @@ export class PlatenSettingTab extends PluginSettingTab {
               void this.plugin.updateSettings({ maxLineWidth: width });
           });
       });
+
+    new Setting(containerEl)
+      .setName("Use iA Writer Quattro")
+      .setDesc(
+        "Write in the bundled iA Writer Quattro while zen is on. Turn off to keep your editor font.",
+      )
+      .addToggle((toggle) =>
+        toggle
+          .setValue(settings.quattro)
+          .onChange((value) => this.plugin.updateSettings({ quattro: value })),
+      );
   }
 }

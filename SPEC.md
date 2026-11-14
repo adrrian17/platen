@@ -35,6 +35,8 @@ Desktop only. Based on a review of 31 existing plugins (see "Prior art").
 - **Sentence dimming**: everything except the sentence under the cursor is dimmed
   (default opacity 0.25). Dimming is suspended while a non-empty selection exists.
 - **Max line width** (default 65ch) applied only inside zen.
+- **Font**: iA Writer Quattro S (bundled, SIL OFL 1.1) for the note text inside zen, when the
+  setting is on. Code keeps the monospace font. Outside zen the editor font is untouched.
 - If the user switches the leaf to Reading view while in zen, the overlay stays;
   typewriter and dimming simply do not apply there.
 
@@ -52,10 +54,11 @@ Desktop only. Based on a review of 31 existing plugins (see "Prior art").
 | Dimmed text opacity | 0.25 |
 | Fullscreen on enter | on |
 | Max line width (ch, 0 = off) | 65 |
+| Use iA Writer Quattro | on |
 
 ## Out of scope for v1
 Mobile, per-note/folder overrides, profiles, separate toggles, line/paragraph/gradient
-dimming, current-line highlight, word count, sounds, Hemingway mode, paper/themes/fonts,
+dimming, current-line highlight, word count, sounds, Hemingway mode, paper/themes, other fonts or a font picker,
 AI, integrations with other plugins, persisting zen across restarts, changing vault config
 (`readableLineLength`, theme).
 

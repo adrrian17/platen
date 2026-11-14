@@ -5,3 +5,4 @@ data.json
 .DS_Store
 .audit/
 .vitest/
+styles.css
