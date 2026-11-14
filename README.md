@@ -2,6 +2,8 @@
 
 An Obsidian plugin with one writing mode, **zen**, that merges typewriter scrolling and a distraction-free overlay. Desktop only.
 
+> The name comes from the typewriter: the platen is the rubber roller the paper wraps around, which turns to keep the line you are typing in the same place.
+
 ## Usage
 
 Run **Toggle zen** from the command palette or click the ribbon icon. Press the command again, or `Esc`, to leave.
