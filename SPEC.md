@@ -37,6 +37,7 @@ Desktop only. Based on a review of 31 existing plugins (see "Prior art").
 - **Max line width** (default 65ch) applied only inside zen.
 - **Font**: iA Writer Quattro S (bundled, SIL OFL 1.1) for the note text inside zen, when the
   setting is on. Code keeps the monospace font. Outside zen the editor font is untouched.
+- **Font size** (px, default 0 = the editor's own size) applied only inside zen.
 - If the user switches the leaf to Reading view while in zen, the overlay stays;
   typewriter and dimming simply do not apply there.
 
@@ -55,6 +56,7 @@ Desktop only. Based on a review of 31 existing plugins (see "Prior art").
 | Fullscreen on enter | on |
 | Max line width (ch, 0 = off) | 65 |
 | Use iA Writer Quattro | on |
+| Font size (px, 0 = editor size) | 0 |
 
 ## Out of scope for v1
 Mobile, per-note/folder overrides, profiles, separate toggles, line/paragraph/gradient

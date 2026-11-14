@@ -9,6 +9,8 @@ export interface PlatenSettings {
   /** In `ch`; 0 turns the limit off. */
   maxLineWidth: number;
   quattro: boolean;
+  /** In px; 0 keeps the editor's own size. */
+  fontSize: number;
 }
 
 export const DEFAULT_SETTINGS: PlatenSettings = {
@@ -17,6 +19,7 @@ export const DEFAULT_SETTINGS: PlatenSettings = {
   fullscreen: true,
   maxLineWidth: 65,
   quattro: true,
+  fontSize: 0,
 };
 
 function numberIn(value: unknown, min: number, max: number, fallback: number): number {
@@ -38,6 +41,7 @@ export function parseSettings(data: unknown): PlatenSettings {
     fullscreen: typeof raw.fullscreen === "boolean" ? raw.fullscreen : DEFAULT_SETTINGS.fullscreen,
     maxLineWidth: Math.round(numberIn(raw.maxLineWidth, 0, 200, DEFAULT_SETTINGS.maxLineWidth)),
     quattro: typeof raw.quattro === "boolean" ? raw.quattro : DEFAULT_SETTINGS.quattro,
+    fontSize: Math.round(numberIn(raw.fontSize, 0, 48, DEFAULT_SETTINGS.fontSize)),
   };
 }
 
@@ -109,5 +113,21 @@ export class PlatenSettingTab extends PluginSettingTab {
           .setValue(settings.quattro)
           .onChange((value) => this.plugin.updateSettings({ quattro: value })),
       );
+
+    new Setting(containerEl)
+      .setName("Font size")
+      .setDesc("Text size in zen, in pixels. 0 keeps your editor font size.")
+      .addText((text) => {
+        text.inputEl.type = "number";
+        text.inputEl.min = "0";
+        text
+          .setPlaceholder("0")
+          .setValue(String(settings.fontSize))
+          .onChange((value) => {
+            const size = Number(value);
+            if (value.trim() !== "" && Number.isFinite(size))
+              void this.plugin.updateSettings({ fontSize: size });
+          });
+      });
   }
 }

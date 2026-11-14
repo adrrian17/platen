@@ -13,6 +13,7 @@ While zen is on:
 - Everything except the sentence under the cursor is dimmed. Dimming pauses while text is selected.
 - Lines are limited to a maximum width.
 - The note is set in the bundled iA Writer Quattro (optional). Code keeps its monospace font.
+- The text can use its own size (optional).
 - The window goes fullscreen (optional). Leaving zen exits fullscreen only if Platen entered it.
 
 A note in Reading view switches to Live Preview on entry and back on exit. Zen ends when you close the note's tab or activate another one; opening another file in the same tab keeps it on. Zen is never restored after a restart.
@@ -28,6 +29,7 @@ A note in Reading view switches to Live Preview on entry and back on exit. Zen e
 | Fullscreen on enter                    | on      |
 | Max line width (ch, 0 = off)           | 65      |
 | Use iA Writer Quattro                  | on      |
+| Font size (px, 0 = editor size)        | 0       |
 
 ## Development
 

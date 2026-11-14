@@ -155,7 +155,12 @@ export default class PlatenPlugin extends Plugin {
 
     this.app.keymap.popScope(scope);
     leafEl.removeClass("platen-zen-leaf", "platen-line-width", "platen-quattro");
-    leafEl.setCssProps({ "--platen-dim-opacity": "", "--platen-line-width": "" });
+    leafEl.setCssProps({
+      "--platen-dim-opacity": "",
+      "--platen-line-width": "",
+      "--font-text-size": "",
+      "--font-preferred-size": "",
+    });
 
     const cm = editorView(leaf);
     if (cm && zenOffset(cm.state) !== null) cm.dispatch({ effects: setZen.of(null) });
@@ -189,12 +194,15 @@ export default class PlatenPlugin extends Plugin {
   private applyStyles(): void {
     const session = this.session;
     if (!session) return;
-    const { dimOpacity, maxLineWidth, quattro } = this.settings;
+    const { dimOpacity, maxLineWidth, quattro, fontSize } = this.settings;
     session.leafEl.toggleClass("platen-line-width", maxLineWidth > 0);
     session.leafEl.toggleClass("platen-quattro", quattro);
     session.leafEl.setCssProps({
       "--platen-dim-opacity": String(dimOpacity),
       "--platen-line-width": `${maxLineWidth}ch`,
+      // Obsidian's note text variables; body resolves the second from the first, so set both here.
+      "--font-text-size": fontSize > 0 ? `${fontSize}px` : "",
+      "--font-preferred-size": fontSize > 0 ? `${fontSize}px` : "",
     });
   }
 
