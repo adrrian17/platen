@@ -58,7 +58,6 @@ export class PlatenSettingTab extends PluginSettingTab {
         slider
           .setLimits(10, 90, 1)
           .setValue(settings.typewriterPosition)
-          .setDynamicTooltip()
           .onChange((value) => this.plugin.updateSettings({ typewriterPosition: value })),
       );
 
@@ -69,7 +68,6 @@ export class PlatenSettingTab extends PluginSettingTab {
         slider
           .setLimits(0.05, 1, 0.05)
           .setValue(settings.dimOpacity)
-          .setDynamicTooltip()
           .onChange((value) => this.plugin.updateSettings({ dimOpacity: value })),
       );
 
