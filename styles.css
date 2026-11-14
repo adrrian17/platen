@@ -1,0 +1,23 @@
+/* The zen leaf covers the window; the workspace under it is left as it is. */
+.workspace-leaf.platen-zen-leaf {
+  position: fixed;
+  inset: 0;
+  /* Above sidebars and the status bar, below popovers, modals, menus and notices. */
+  z-index: calc(var(--layer-popover) - 1);
+  background-color: var(--background-primary);
+}
+
+.workspace-leaf.platen-zen-leaf .platen-dim {
+  opacity: var(--platen-dim-opacity);
+}
+
+/* Covers both states of the vault's readable line length setting without changing it. */
+.workspace-leaf.platen-zen-leaf.platen-line-width {
+  --file-line-width: var(--platen-line-width);
+}
+
+.workspace-leaf.platen-zen-leaf.platen-line-width .markdown-source-view.mod-cm6 .cm-sizer,
+.workspace-leaf.platen-zen-leaf.platen-line-width .markdown-preview-view .markdown-preview-sizer {
+  max-width: var(--platen-line-width);
+  margin-inline: auto;
+}
