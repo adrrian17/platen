@@ -36,10 +36,13 @@ vp install
 pnpm build   # type-check, then bundle main.js with vp pack
 pnpm test    # unit tests (vp test)
 pnpm dev     # rebuild on change
-vp check     # format, lint and type-check
+vp check     # format, lint (incl. Obsidian's review rules) and type-check
+pnpm lint:obsidian  # Obsidian's exact review rule set (ESLint); run before a release
 ```
 
 To try it, copy `main.js`, `manifest.json` and `styles.css` into `<vault>/.obsidian/plugins/platen/` and enable Platen under Settings → Community plugins.
+
+Pushing a tag such as `1.0.1` that matches `manifest.json` runs `.github/workflows/release.yml`, which checks, tests and builds the plugin, then publishes a GitHub release with `main.js`, `manifest.json` and `styles.css`.
 
 ## Credits
 
