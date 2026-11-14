@@ -20,6 +20,8 @@ Desktop only. Based on a review of 31 existing plugins (see "Prior art").
 3. The active leaf is laid over the whole window (`position: fixed; inset: 0`).
    The workspace layout, sidebars and tabs are **not touched**, so nothing needs restoring.
    Modals, menus, the command palette and notices must stay above the overlay.
+   Inside the leaf only the text shows: the view header, inline title, properties and
+   scroll bars are hidden while zen is on.
 4. If the "Fullscreen" setting is on, put the window in native fullscreen
    (`electronWindow.setFullScreen(true)`), remembering whether the plugin turned it on.
 

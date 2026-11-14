@@ -9,6 +9,7 @@ Run **Toggle zen** from the command palette or click the ribbon icon. Press the 
 While zen is on:
 
 - The active note covers the whole window. Sidebars, tabs and layout stay as they were underneath.
+- Only the text shows: the note's header, inline title, properties and scroll bars are hidden.
 - The cursor line stays at a fixed height while you type or move with the keyboard. Clicks and drags never scroll. After a manual scroll, the page stays put until your next edit.
 - Everything except the sentence under the cursor is dimmed. Dimming pauses while text is selected.
 - Lines are limited to a maximum width.

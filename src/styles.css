@@ -7,6 +7,22 @@
   background-color: var(--background-primary);
 }
 
+/* Only the text: no tab header, inline title, properties or scroll bars. */
+.workspace-leaf.platen-zen-leaf .view-header,
+.workspace-leaf.platen-zen-leaf .inline-title {
+  display: none;
+}
+
+.workspace-leaf.platen-zen-leaf {
+  /* Obsidian's own switches for the properties block. */
+  --metadata-display-editing: none;
+  --metadata-display-reading: none;
+}
+
+.workspace-leaf.platen-zen-leaf * {
+  scrollbar-width: none;
+}
+
 .workspace-leaf.platen-zen-leaf .platen-dim {
   opacity: var(--platen-dim-opacity);
 }
