@@ -1,0 +1,9 @@
+{
+  "id": "platen",
+  "name": "Platen",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "One zen mode for writing: typewriter scrolling, sentence dimming and a distraction-free overlay.",
+  "author": "Adrian Ayala",
+  "isDesktopOnly": true
+}
